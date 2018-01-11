@@ -13,4 +13,9 @@ This version is very basic with no functionality.
 -- Added Basic styling and Navigation Bar
 
 Technologies used:
-HTML, CSS, Javascript, Node.js, Express
+HTML, CSS, Javascript, Bootstrap, Node.js, Express, mongodb, mongoose
+
+YelpCamp - v2
+
+-- Attached mongodb database
+-- updated "addnewcampground" form with description
