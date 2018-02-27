@@ -13,4 +13,4 @@ This version is very basic with no functionality.
 -- Added Basic styling and Navigation Bar
 
 Technologies used:
-HTML, CSS, Javascript, Node.js, Express
+HTML, CSS, Javascript, Node.js, Express, Mongoose
