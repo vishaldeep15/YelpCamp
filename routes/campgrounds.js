@@ -14,11 +14,15 @@ router.get("/", function(req, res) {
 });
 
 //Create a new campground
-router.post("/", function(req, res) {
+router.post("/", isLoggedIn, function(req, res) {
 	var name = req.body.name;
 	var image = req.body.image;
 	var desc = req.body.description;
-	var newCamground = {name: name, image: image, description: desc};
+	var author = {
+		id: req.user._id,
+		username: req.user.username
+	}
+	var newCamground = {name: name, image: image, description: desc, author: author};
 	
 	Campground.create(newCamground, function(err, newlyCreated){
 		if(err) {
@@ -30,7 +34,7 @@ router.post("/", function(req, res) {
 });
 
 // Add a new campground page
-router.get("/new", function(req, res) {
+router.get("/new", isLoggedIn, function(req, res) {
 	res.render("campgrounds/new");
 });
 

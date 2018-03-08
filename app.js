@@ -25,7 +25,7 @@ app.use(function(req, res, next){
 	next();
 });
 
-seedDB();
+// seedDB(); //seed the database
 
 //Passport Configuration
 app.use(require("express-session")({
