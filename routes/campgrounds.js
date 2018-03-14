@@ -14,8 +14,6 @@ router.get("/", function(req, res) {
 	})
 });
 
-
-
 //Create a new campground
 router.post("/", middleware.isLoggedIn, function(req, res) {
 	var name = req.body.name;
