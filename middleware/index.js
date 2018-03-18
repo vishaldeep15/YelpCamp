@@ -7,7 +7,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next) {
 	// is user logged in
 	if(req.isAuthenticated()){
 		Campground.findById(req.params.id, function(err, foundCampground){
-			if(err){
+			if(err || !foundCampground){
 				req.flash("error", "Campground not found");
 				res.redirect("back");		
 			} else {
@@ -29,7 +29,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
 	// is user logged in
 	if(req.isAuthenticated()){
 		Comment.findById(req.params.comment_id, function(err, foundComment){
-			if(err){
+			if(err || !foundComment){
 				res.redirect("back");		
 			} else {
 				// does user own the comment (both id doesn't have same type therefore using mongoose method)
