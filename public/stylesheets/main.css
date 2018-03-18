@@ -1,5 +1,6 @@
 .thumbnail img {
 	width: 100%;
+
 }
 
 .thumbnail {
@@ -16,4 +17,14 @@
 
 .fa-free-code-camp {
 	color: red;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.thumbnail .thumb {
+	height: 200px;
 }

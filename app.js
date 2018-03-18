@@ -7,7 +7,8 @@ var express 			= require("express"),
     passport			= require("passport"),
     LocalStrategy		= require("passport-local"),
     methodOverride		= require("method-override"),
-    Campground 			= require("./models/campground"),
+    contactRoutes 		= require("./routes/contact"),
+ 	Campground 			= require("./models/campground"),
     Comment 			= require("./models/comment"),
     User				= require("./models/user"),
     seedDB 				= require("./seeds");
@@ -24,6 +25,8 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+
+app.locals.moment = require('moment');
 
 // seedDB(); //seed the database
 
@@ -49,9 +52,9 @@ app.use(function(req, res, next){
 app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
+app.use("/contact", contactRoutes);
 
 // local server listening to port 3000
 app.listen(3000, function() {
 	console.log("The Yelp Camp server has started");
 });
-

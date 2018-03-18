@@ -1,13 +1,22 @@
 <% include ../partials/header %>
-
-
-<div class="container">
+	
+	<% if(currentUser && currentUser.isAdmin) { %>
+		<h4>You are logged in an admin </h4>
+	<% } %>
 	<header class="jumbotron">
 		<div class="container">
 			<h1><i class="fab fa-free-code-camp"></i> Welcome to Yelp Camp</h1>
 			<p>View our hand-picked camp from all over the world</p>
 			<p>
 				<a class="btn btn-primary btn-lg" href="/campgrounds/new">Add new campground</a>
+			</p>
+			<p>
+				<form action="/campgrounds" method="GET" class="form-inline">
+					<div class="form-group">
+						<input type="text" name="search" placeholder="Campground search..." class="form-control">
+						<input type="submit" value="Search" class="btn btn-default">
+					</div>
+				<form>
 			</p>
 		</div>		
 	</header>	
@@ -16,7 +25,7 @@
 		<% campgrounds.forEach(function(campground){  %>
 		<div class="col-md-3 col-sm-6">
 			<div class="thumbnail">
-				<img src="<%= campground.image %>" >
+				<img class="thumb" src="<%= campground.image %>" >
 				<div class="caption">
 					<h4> <%= campground.name %> </h4>
 				</div>
@@ -28,6 +37,6 @@
 		</div>
 	<% }); %>
 	</div>	
-</div>	
+
 
 <% include ../partials/footer %>
