@@ -9,6 +9,7 @@
   "author": "vishal deep",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.0",
     "cloudinary": "^1.10.0",
     "connect-flash": "^0.1.1",
     "dotenv": "^5.0.1",
